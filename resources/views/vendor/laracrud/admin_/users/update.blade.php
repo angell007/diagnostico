@@ -29,7 +29,7 @@
         </div>
 
         <div class="modal-footer">
-            <button type="submit" class="btn btn-round btn-primary">Save</button>
+            <button type="submit" class="btn btn-round btn-success">Save</button>
             <button type="button" class="btn btn-round btn-secondary" data-dismiss="modal">Cancel</button>
         </div>
     </form>

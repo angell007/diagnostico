@@ -3,7 +3,7 @@
 @section('parent-content')
     <div class="container h-100">
         <div class="row justify-content-center align-items-center h-100">
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <h2 class="text-center mb-3">
                     <i class="fal {{ config('laracrud.icon') }} text-success"></i> {{ config('app.name') }}
                 </h2>

@@ -18,6 +18,8 @@ class CreateLaracrudColumns extends Migration
         // create default admin user
         User::create([
             'name' => 'Admin',
+            'edad' => '00',
+            'identificacion' => '000000',
             'email' => 'admin@example.com',
             'password' => Hash::make('angell123'),
             'role' => 'Admin',

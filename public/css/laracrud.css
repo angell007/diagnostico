@@ -11,6 +11,16 @@ body {
     background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("https://www.progressalean.com/wp-content/uploads/2011/07/diagnostico.png");
 }
 
+.bg-lightgreen
+{
+    background-color: #00e676;
+}
+
+.nav-link
+{
+font-weight: bolder;
+}
+
 /* round buttons */
 .btn-round.btn-sm {
     border-radius: 1rem;

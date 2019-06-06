@@ -1,7 +1,7 @@
 @extends('laracrud::layouts.app')
 
 @section('parent-content')
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-lightgreen">
         <div class="container">
             <a href="{{ url('/') }}" class="navbar-brand">
                 <i class="fal {{ config('laracrud.icon') }} text-success"></i> {{ config('app.name') }}
@@ -12,19 +12,31 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     @include('laracrud::layouts.nav')
-                    <li class="nav-item dropdown">
-                        <a href="#" id="userDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown">
-                            {{ auth()->user()->name }}
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <button type="button" class="dropdown-item" data-modal="{{ route('profile') }}">Profile</button>
-                            <button type="button" class="dropdown-item" data-modal="{{ route('password') }}">Password</button>
-                            <form method="POST" action="{{ route('logout') }}" data-ajax-form>
-                                @csrf
-                                <button type="submit" class="dropdown-item">Logout</button>
-                            </form>
-                        </div>
-                    </li>
+                    @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <button type="button" class="dropdown-item" data-modal="{{ route('profile') }}">Profile</button>
+                                    <button type="button" class="dropdown-item" data-modal="{{ route('password') }}">Password</button>
+                                    <form method="POST" action="{{ route('logout') }}" >
+                                        @csrf
+                                        <button type="submit" class="dropdown-item">Logout</button>
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
                 </ul>
             </div>
         </div>
