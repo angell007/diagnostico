@@ -21,4 +21,8 @@ class Enfermedad extends Model
         return $this->belongsToMany(Tratamiento::class)->withTimestamps();
     }
 
+    public function users(){
+        return $this->belongsToMany('App\User', 'historials', 'user_id', 'enfermedad_id')->withTimestamps();
+    }
+
 }

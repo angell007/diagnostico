@@ -12,7 +12,7 @@ class CreateSintomasTable extends Migration
         Schema::create('sintomas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable();
             $table->unsignedInteger('enfermedad_id')->nullable();
             $table->timestamps();
         });

@@ -15,7 +15,7 @@
                 <form action="{{route('user.consultas.create')}}" method="post">
                     @csrf
                     <div class="form-group font-weight-bold ">
-                        <label> Sintoma mas renuente </label>
+                        <label> Sintoma más recurrente:</label>
                         <input type="text" name="s1" class=" custom-select custom-select-sm font-weight-bold" list="s1">
                         <datalist id="s1">
                             @foreach ($sintomas as $item)
@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="form-group font-weight-bold ">
-                        <label> Sintoma 2 </label>
+                        <label> Otro sintoma que presenta: </label>
                         <input type="text" name="s2" class=" custom-select custom-select-sm font-weight-bold" list="s2">
                         <datalist id="s2">
                             @foreach ($sintomas as $item)
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="form-group font-weight-bold ">
-                        <label> Sintoma 3 </label>
+                        <label> Otro sintoma que presenta: </label>
                         <input type="text" name="s3" class=" custom-select custom-select-sm font-weight-bold" list="s3">
                         <datalist id="s3">
                             @foreach ($sintomas as $item)
@@ -53,6 +53,14 @@
     <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0 ">
         <div class="card">
             @if(isset($enfermedades))
+            {{--  <div class="row">
+                    <div class="col-sm-4 col-xs well">
+                        <a href="#info2" class="inf btn btn-info m-2 ">Tratamiento</a>
+                    </div>
+                    <div class="col-sm-6 col-xs well ">
+                        <a href="#info3" class="inf btn btn-info m-2">otros sintomas</a>
+                    </div>
+                </div>  --}}
             @foreach ($enfermedades as $item)
             <div class="card-body ">
 
@@ -69,24 +77,17 @@
                 <p class="card-text text-dark"> {{ $item->descripcion}}</p>
                 <div class="container-fluid">
 
-                    <div class="row">
-                        <div class="col-sm-4 col-xs well">
-                            <a href="#info2" class="inf btn btn-info m-2 ">Tratamiento</a>
-                        </div>
-                        <div class="col-sm-6 col-xs well ">
-                            <a href="#info3" class="inf btn btn-info m-2">otros sintomas</a>
-                        </div>
-                    </div>
+
                     <!-- contenido informacion adicional -->
                     <div class="row">
                         <div id="info2" class="col-xs-12 well oculto pb-3 mt-5">
                             <div class="container-fluid">
                                 <div class="card text-info mb-3" style="max-width: 38rem;">
 
-                                    <div class="card-header text-dark">Tratamiento</div>
+                                    <div class="card-header text-dark font-weight-bold ">Tratamiento</div>
                                     @foreach ($item->tratamientos as $tt)
                                     <div class="card-body">
-                                        <p class="card-text text-dark">
+                                        <p class="card-text text-dark font-weight-bold">
                                             {{$tt->name}}
                                         </p>
                                         <p class="card-text text-dark">
@@ -97,26 +98,28 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="info3" class="col-xs-12 well oculto pb-3 mt-5 ">
-                            <div class="container-fluid">
-                                <div class="card text-info mb-3" style="max-width: 38rem;">
-                                    <div class="card-header text-dark ">Mas sintomas</div>
-                                    @foreach ($item->sintomas as $st)
-                                    <div class="card-body">
-                                        <p class="card-text text-dark">
-                                            {{$st->name}}
-                                        </p>
-                                        <p class="card-text text-dark">
-                                            {{$st->descripcion}}
-                                        </p>
-                                    </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
+
             </div>
+
+            {{--  <div id="info3" class="col-xs-12 well oculto pb-3 mt-5 ">
+                    <div class="container-fluid">
+                        <div class="card text-info mb-3" style="max-width: 38rem;">
+                            <div class="card-header text-dark ">Mas sintomas</div>
+                            @foreach ($item->sintomas as $st)
+                            <div class="card-body">
+                                <p class="card-text text-dark">
+                                    {{$st->name}}
+                                </p>
+                                <p class="card-text text-dark">
+                                    {{$st->descripcion}}
+                                </p>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>  --}}
             @endforeach
             @endif
         </div>

@@ -50,7 +50,7 @@ class TratamientoController extends Controller
         $tratamiento = Tratamiento::create(request()->all());
 
         return response()->json([
-            'flash_now' => ['success', 'Tratamiento created!'],
+            'flash_now' => ['success', 'Tratamiento creado'],
             'dismiss_modal' => true,
             'reload_datatables' => true,
         ]);

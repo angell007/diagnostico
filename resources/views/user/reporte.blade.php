@@ -1,83 +1,191 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+            html, body {
+                background-color: #fff;
+                color: #000;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 200;
+                height: 100vh;
+                margin: 3%;
+            }
+
+            .nav{
+                text-align:center;
+                background-color: #4FFF33;
+                color: #000;
+                font-family: 'Times New Roman', Times, serif;
+                padding: 1%;
+                height: 3rem;
 
 
-        h1 {
-            text-align: center;
-            text-transform: uppercase;
-        }
+            }
+            .left{
+                float: left;
+            }
+            .right{
+                float: right;
+            }
+            .center{
+                background:green;
+               display:inline-block
+            }
 
-        .contenido {
-            font-size: 20px;
-        }
 
-        #primero {
-            background-color: #ccc;
-        }
 
-        #segundo {
-            color: #44a359;
-        }
+            .full-height {
+                height: 100vh;
+            }
 
-        #tercero {
-            text-decoration: line-through;
-        }
-    </style>
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align : justify;
+                justify-content: center;
+                padding: 2%;
+
+            }
+
+            .title, {
+                font-size: 1rem;
+                text-transform: uppercase;
+
+            }
+
+            span, p {
+                font-size: 1rem;
+                justify-content:center;
+            }
+
+            li {
+                color: #000;
+                font-size: 15px;
+                text-decoration: none;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+
+            .clearfix {
+                overflow: auto;
+              }
+        </style>
+
 </head>
 
-<body id="body">
-    <h1>
-        <p>{{$today}}</p>
-    </h1>
-    <hr>
-    <div class="contenido">
-        <div class="row align-items-center mb-3 ">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
+<body>
+    <div>
 
-                        {{-- <div class="card mb-3">
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
-                          </div> --}}
-                          {{-- <div class="card"> --}}
-                                {{-- <div class="card-body"> --}}
-                                        <h5 class="card-title">{{$enfermedad->name}}</h5>
-                                        <p class="card-text">{{$enfermedad->descripcion}}</p>
-                                        @foreach ($enfermedad->sintomas as $item)
-                                        <span class="card-text" >
-                                            {{$item->name}}
-                                          </span>
-                                          <br>
-                                          <br>
-                                          <span class="card-text" >
-                                                  {{$item->descripcion}}
-                                                </span>
-                                          @endforeach
-                                        {{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
-                                      {{-- </div> --}}
-                                    {{-- </div> --}}
+            <div class="nav">
+                    <div class="right">
+                            <img style="border-radius:50%" src="http://aux.iconspalace.com/uploads/ambulance-icon-256.png" width="50" height="50">
+                        </div>
+                    <div class="left">
+                        <h5 class="title">
+                                Diagnósticos.
+                            </h5>
 
-                            {{-- <img src="..." class="card-img-top" alt="..."> --}}
-                          </div>
+                        </div>
+                    {{--  <div class="center">
+                    Menu
+                        </div>  --}}
+                    </div>
 
+
+        <div class="content">
+                <div class="clearfix">
+                    </div>
+
+                <div class="">
+                  <div class="">
+
+                        <div class="">
+                                <h3 class="">
+                                    Información del usuario
+                                </h3>
+                                <div class="">
+                                  <ul class="">
+                                    <li class="">
+                                        Nombre
+                                      <span class=""> {{Auth::user()->name}}</span>
+                                    </li>
+                                    <li class="">
+                                      Age
+                                      <span class="">{{Auth::user()->edad}}</span>
+                                    </li>
+                                    <li class="">
+                                      ID
+                                      <span class="">{{Auth::user()->identificacion}}</span>
+                                    </li>
+
+                                    <li class="">Fecha de impresión :
+                                    <small>{{\Carbon\carbon::now()}}</small>
+                                    </li>
+
+                                  </ul>
+                                </div>
+                              </div>
+
+                  </div>
+                  <div class="col-md-7 m-3">
+
+                        <h5 class="">Enfermedad : {{$enfermedad->name}}</h5>
+                        <p class="">{{$enfermedad->descripcion}}</p>
+                        <h5 class="">Sintomas</h5>
+                        <ul class="mb-3">
+                                @foreach ($enfermedad->sintomas as $item)
+                                <li class="tr">
+                                    <span class="">
+                                        {{$item->name}}
+                                    </span>
+                                </li>
+                                @if($item->descripcion)
+                                <h6 class="">Consiste en : </h6>
+                                <span class="">
+                                    {{$item->descripcion}}
+                                </span>
+                                @endif
+                                @endforeach
+                            </ul>
+                            <h5 class=""> Tratamientos</h5>
+                            <ul class="mb-3">
+                                @foreach ($enfermedad->tratamientos as $item)
+                                <li>
+                                    <span class="">
+                                        {{$item->name}}
+                                    </span>
+                                </li>
+                                @if($item->descripcion)
+                                <h6 class="">Consiste en : </h6>
+                                <span class="">
+                                    {{$item->descripcion}}
+                                </span>
+                                @endif
+                                @endforeach
+                            </ul>
+
+                  </div>
                 </div>
-            </div>
         </div>
     </div>
-
-    {{-- <p id="segundo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore nihil illo odit aperiam alias rem
-        voluptatem odio maiores doloribus facere recusandae suscipit animi quod voluptatibus, laudantium obcaecati
-        quisquam minus modi.</p>
-    </div> --}}
 </body>
-
 </html>

@@ -14,8 +14,11 @@ class User extends Authenticatable
     ];
 
     protected $hidden = ['password', 'remember_token'];
-}
 
+    public function enfermedades(){
+        return $this->belongsToMany('App\Enfermedad', 'historials', 'user_id', 'enfermedad_id')->withTimestamps();
+    }
+}
 
 // public function hasRole($role)
 // {

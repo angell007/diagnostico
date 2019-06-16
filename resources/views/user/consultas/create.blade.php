@@ -18,3 +18,31 @@
         </div>
     </form>
 @endsection
+{{--
+
+<div class="card-body">
+        <div class="form-group col-md-6">
+            <label for="name" class="font-weight-bold">Name : </label>
+            <p>
+                {{ Auth::user()->name }}
+            </p>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="name" class="font-weight-bold">Edad :</label>
+            <p>
+                {{ Auth::user()->edad }}
+            </p>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="name" class="font-weight-bold">ID :</label>
+            <p>
+                {{ Auth::user()->identificacion }}
+            </p>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="name" class="font-weight-bold">Fecha:</label>
+
+                <p class="card-text"><small class="text-muted"> Carbon\Carbon::now()</small></p>
+        </div>
+    </div>  --}}

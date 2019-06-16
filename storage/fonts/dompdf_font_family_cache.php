@@ -83,4 +83,7 @@
   'font awesome 5 pro' => array(
     'normal' => $fontDir . '\2395c72145e399b37698e017ffda7023',
   ),
+  'font awesome 5 free' => array(
+    'normal' => $fontDir . '\35fa8da37e725924ae031499377c4226',
+  ),
 ) ?>

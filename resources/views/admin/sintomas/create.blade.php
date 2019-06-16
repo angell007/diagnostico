@@ -2,7 +2,7 @@
 
 @section('title', 'Create Sintoma')
 @section('content')
-    <form method="POST" action="{{ route('admin.sintomas.create') }}" data-ajax-form>
+    <form method="POST" action="{{ route('admin.sintomas.create') }}" onsubmit="document.forms['myform']['enviar'].disabled=true;" name="myform" data-ajax-form>
         @csrf
 
         <div class="modal-body">
@@ -21,7 +21,7 @@
 
 
         <div class="modal-footer">
-            <button type="submit" class="btn btn-round btn-success">Save</button>
+            <button type="submit" class="btn btn-round btn-success" name="enviar">Save</button>
             <button type="button" class="btn btn-round btn-secondary" data-dismiss="modal">Cancel</button>
         </div>
     </form>

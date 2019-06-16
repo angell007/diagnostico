@@ -51,7 +51,7 @@ class CategoryController extends Controller
         $category = Category::create(request()->all());
 
         return response()->json([
-            'flash_now' => ['success', 'Category created!'],
+            'flash_now' => ['success', 'Category creado'],
             'dismiss_modal' => true,
             'reload_datatables' => true,
         ]);

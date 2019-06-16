@@ -50,7 +50,7 @@ class SintomaController extends Controller
         $sintoma = Sintoma::create(request()->all());
 
         return response()->json([
-            'flash_now' => ['success', 'Sintoma created!'],
+            'flash_now' => ['success', 'Sintoma creado'],
             'dismiss_modal' => true,
             'reload_datatables' => true,
         ]);

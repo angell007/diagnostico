@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Consulta;
 use App\Sintoma;
 use App\Enfermedad;
+use Auth;
 
 class ConsultaController extends Controller
 {
@@ -53,9 +54,11 @@ class ConsultaController extends Controller
     }
 
 
-    // public function show($enfermedad)
-    // {
-    //     return 'hola';
-    // }
+    public function historial()
+    {
+
+        $enfermedades = Auth::user()->enfermedades;
+        return  view('user.historial', compact('enfermedades'));
+    }
 
 }

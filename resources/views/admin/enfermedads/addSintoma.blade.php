@@ -2,7 +2,7 @@
 
 @section('title', 'Relacionar nuevo sintoma ')
 @section('content')
-    <form method="POST" action="{{route('admin.enfermedades.addsintoma',$enfermedad)}}" data-ajax-form>
+    <form method="POST" action="{{route('admin.enfermedades.addsintoma',$enfermedad)}}" onsubmit="document.forms['myform']['enviar'].disabled=true;" name="myform" data-ajax-form>
         @csrf
 
         <div class="modal-body">
@@ -18,7 +18,7 @@
         </div>
 
         <div class="modal-footer">
-            <button type="submit" class="btn btn-round btn-success">
+            <button type="submit" class="btn btn-round btn-success" name="enviar">
                     <i class="fa fa-plus-square" aria-hidden="true"></i>
                     Save</button>
             <button type="button" class="btn btn-round btn-secondary" data-dismiss="modal">Cancel</button>

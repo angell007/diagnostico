@@ -6,6 +6,10 @@ Route::get('/', function(){
 })->name('/');
 
 Route::name('print')->get('/imprimir/{id?}', 'User\InformacionController@imprimir');
+Route::name('save')->get('/save/{id?}', 'User\InformacionController@save');
+
+Route::get('/import', 'Admin\ExcelController@importView');
+Route::post('/import', 'Admin\ExcelController@import');
 
 Route::get('/user/informacion/{id?}','User\InformacionController@show')->name('informacion');
 
@@ -53,6 +57,7 @@ Route::post('user/consultas/create', 'User\ConsultaController@create')->name('us
 Route::get('user/consultas/update/{consulta}', 'User\ConsultaController@updateModal')->name('user.consultas.update');
 Route::patch('user/consultas/update/{consulta}', 'User\ConsultaController@update');
 Route::delete('user/consultas/delete/{consulta}', 'User\ConsultaController@delete')->name('user.consultas.delete');
+Route::get('user/historial', 'User\ConsultaController@historial')->name('user.historial');
 
 Auth::routes();
 

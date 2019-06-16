@@ -40,6 +40,21 @@
                     }
               });
           });
+
+    {{--  enviando = false; //Obligaremos a entrar el if en el primer submit
+    btn = document.getElementById("btn")
+    function checkSubmit() {
+        if (!enviando) {
+            enviando= true;
+            btn.disabled=true;
+    		return true;
+        } else {
+            //Si llega hasta aca significa que pulsaron 2 veces el boton submit
+            alert("El formulario ya se esta enviando");
+            return false;
+        }
+    }  --}}
+
 </script>
 
 </body>

@@ -2,7 +2,7 @@
 
 @section('title', 'Create Category')
 @section('content')
-    <form method="POST" action="{{ route('admin.categories.create') }}" data-ajax-form>
+    <form method="POST" action="{{ route('admin.categories.create') }}" onsubmit="document.forms['myform']['enviar'].disabled=true;" name="myform" data-ajax-form>
         @csrf
 
         <div class="modal-body">
@@ -18,9 +18,8 @@
                 <textarea type="text" name="descripcion" id="descripcion" class="form-control" value="{{ old('descripcion') }}"></textarea>
             </div>
         </div>
-
         <div class="modal-footer">
-            <button type="submit" class="btn btn-round btn-success">Save</button>
+            <button type="submit" name="enviar" class="btn btn-round btn-success" id="btn">Save</button>
             <button type="button" class="btn btn-round btn-secondary" data-dismiss="modal">Cancel</button>
         </div>
     </form>

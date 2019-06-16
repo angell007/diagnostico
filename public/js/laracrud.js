@@ -134,7 +134,7 @@ $(document).ready(function () {
 
     // confirm action
     $(document).on('click', '[data-confirm]', function (event) {
-        if (!confirm($(this).data('confirm').length ? $(this).data('confirm') : 'Are you sure?')) {
+        if (!confirm($(this).data('confirm').length ? $(this).data('confirm') : 'Estas seguro ?')) {
             event.preventDefault();
         }
     });

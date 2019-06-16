@@ -1,6 +1,6 @@
 @extends('laracrud::layouts.auth')
 
-@section('title', 'Enfermedads')
+@section('title', 'Enfermedades')
 @section('child-content')
     <div class="row align-items-center mb-3">
         <div class="col-lg">
@@ -8,7 +8,7 @@
         </div>
         <div class="col-lg-auto">
             <button type="button" class="btn btn-round btn-success" data-modal="{{ route('admin.enfermedads.create') }}">
-                <i class="fal fa-plus"></i> Create Enfermedad
+                <i class="fal fa-plus"></i> Registrar Enfermedad
             </button>
         </div>
     </div>

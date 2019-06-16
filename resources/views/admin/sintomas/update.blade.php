@@ -11,6 +11,12 @@
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $sintoma->name) }}">
             </div>
+
+                    <div class="form-group">
+                        <label for="name">Descripcin</label>
+                        <input type="text" name="descripcion" id="descripcion" class="form-control" value="{{ old('descripcion', $sintoma->descripcion) }}">
+                    </div>
+
         </div>
 
         <div class="modal-footer">

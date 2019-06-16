@@ -1,5 +1,9 @@
 @can('Admin')
 
+<li class="nav-item{!! request()->is('admin/tratamientos') ? ' active' : '' !!}">
+    <a href="{{ url('/import') }}" class="nav-link">Importar</a>
+</li>
+
     <li class="nav-item{!! request()->is('admin/tratamientos') ? ' active' : '' !!}">
         <a href="{{ route('admin.tratamientos') }}" class="nav-link">Tratamientos</a>
     </li>
@@ -22,4 +26,7 @@
     <li class="nav-item{!! request()->is('user/consultas') ? ' active' : '' !!}">
         <a href="{{ route('user.consultas') }}" class="nav-link">Consultas</a>
     </li>
+    <li class="nav-item{!! request()->is('user/consultas') ? ' active' : '' !!}">
+            <a href="{{ route('user.historial') }}" class="nav-link">Historial</a>
+        </li>
 @endcan

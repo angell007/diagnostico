@@ -20,12 +20,12 @@
     <div class="col-md-12">
         <div class="card" >
             <div class="card-body">
-                <a  class="btn btn-round btn-icon btn-info m-1" href="{{route('user.consultas')}}" title="Imprimir">
-                    <i class="fa fa-arrow-circle-left"></i>Volver
+                <a  class="btn btn-round btn-icon btn-info m-1" href="{{route('/')}}" title="Imprimir">
+                    <i class="fa fa-arrow-circle-left"></i>Home
                 </a>
 
 
-                        <form method="get" action="{{route('print',$enfermedad->id)}}" onsubmit="document.forms['myform']['enviar'].disabled=true;" name="myform" class="d-inline-block" >
+                        {{-- <form method="get" action="{{route('print',$enfermedad->id)}}" onsubmit="document.forms['myform']['enviar'].disabled=true;" name="myform" class="d-inline-block" >
                                 @csrf
                                 <button type="submit" name="enviar" class="btn btn-round btn-icon btn-warning" title="pdf" data-confirm>
                                     <i class="fal fa-fw fa-file"></i>Imprimir
@@ -36,14 +36,18 @@
                                 @csrf
                                 <button type="submit" name="envio" class="btn btn-round btn-icon btn-danger m-1" title="pdf" data-confirm>
                                     <i class="fal fa-fw fa-archive"></i>Guardar en mi historial                                </button>
-                            </form>
+                            </form> --}}
 
 
                 </button>
 
             {{-- <div class="card mb-3"> --}}
                 {{-- <img src="..." class="card-img-top" alt="..."> --}}
+                @foreach ($enfermedades as $enfermedad)
+
+
                 <div class="card-body">
+                    <small class=" mb-3 pb-3 font-weight-bold text-danger">Fecha: {{ $enfermedad->pivot->created_at }}</small>
                   <h5 class="card-title font-weight-bold text-uppercase">{{$enfermedad->name}}</h5>
                   <p class="card-text text-justify">{{$enfermedad->descripcion}}</p>
                   <h5 class="card-title font-weight-bold ">Sintomas</h5>
@@ -82,6 +86,7 @@
 
                 {{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
                 </div>
+                @endforeach
               </div>
 
         </div>

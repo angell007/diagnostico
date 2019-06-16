@@ -19,7 +19,6 @@ class EnfermedadController extends Controller
             ['title' => '#', 'data' => 'id'],
             ['title' => 'Name', 'data' => 'name'],
             ['title' => 'Descripcion', 'data' => 'descripcion'],
-            // ['title' => 'tipo', 'data' => ''],
             ['title' => '', 'data' => 'actions', 'searchable' => false, 'orderable' => false],
         ]);
         $html->ajax(route('admin.enfermedads.datatables'));
@@ -54,7 +53,7 @@ class EnfermedadController extends Controller
         $enfermedad = Enfermedad::create(request()->all());
 
         return response()->json([
-            'flash_now' => ['success', 'Enfermedad created!'],
+            'flash_now' => ['success', 'Enfermedad creada!'],
             'dismiss_modal' => true,
             'reload_datatables' => true,
         ]);
@@ -74,7 +73,7 @@ class EnfermedadController extends Controller
         $enfermedad->update(request()->all());
 
         return response()->json([
-            'flash_now' => ['success', 'Enfermedad updated!'],
+            'flash_now' => ['success', 'Enfermedad actualizada!'],
             'dismiss_modal' => true,
             'reload_datatables' => true,
         ]);
@@ -85,10 +84,10 @@ class EnfermedadController extends Controller
         $enfermedad->delete();
 
         return response()->json([
-            'flash_now' => ['success', 'Enfermedad deleted!'],
+            'flash_now' => ['success', 'Enfermedad borrada!'],
             'reload_datatables' => true,
         ]);
     }
 
-   
+
 }
