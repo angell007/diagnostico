@@ -24,6 +24,7 @@ class ExcelController extends Controller
                 return back()->with('success', 'All good!');
                 break;
             case 'sintoma':
+                Excel::import(new TratamientosImport, request()->file('file'));
                 return back()->with('success', 'All good!');
                 break;
             default:

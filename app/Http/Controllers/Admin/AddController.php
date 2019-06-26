@@ -91,5 +91,18 @@ class AddController extends Controller
         return view('admin.enfermedads.addTmto', compact('tratamientos','enfermedad'));
     }
 
+    public function deleteSintoma(Request $request)
+    {
+        $sintoma = Sintoma::where('id',request()->sintoma)->first();
+        Enfermedad::findOrFail(request()->enfermedad)->sintomas()->detach($sintoma);
+        return back();
+    }
+
+    public function deleteTratamiento(Request $request)
+    {
+        $tratamiento = Tratamiento::where('id',request()->tratamiento)->first();
+         Enfermedad::findOrFail(request()->enfermedad)->tratamientos()->detach($tratamiento);
+         return back();
+    }
 
 }

@@ -64,12 +64,12 @@
             @foreach ($enfermedades as $item)
             <div class="card-body ">
 
-                <div class="row mb-5 alert-success p-3">
+                <div class="row mb-3 alert-success pt-3">
                     <div class="col-md-6 ">
-                        <h5 class="card-title text-dark m-3 text-uppercase font-weight-bold ">{{$item->name}}</h5>
+                        <h5 class="card-title text-dark p-2 d-inline-block text-uppercase font-weight-bold ">{{$item->name}}</h5>
                     </div>
                     <div class="col-md-4 ">
-                        <a class="btn btn-round btn-success" href="{{route('informacion', $item->id)}}">
+                        <a class="btn btn-round btn-success  p-2 d-block " href="{{route('informacion', $item->id)}}">
                             <i class="fal fa-eye"></i> ver mas
                         </a>
                     </div>

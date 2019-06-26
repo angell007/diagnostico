@@ -89,5 +89,11 @@ class EnfermedadController extends Controller
         ]);
     }
 
+    public function show($enfermedad)
+    {
+        $enfermedad =  Enfermedad::find($enfermedad);
+        return view('admin.enfermedads.show', compact('enfermedad'));
+    }
+
 
 }

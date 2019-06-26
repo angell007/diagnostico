@@ -30,6 +30,7 @@ Route::post('admin/enfermedads/create', 'Admin\EnfermedadController@create');
 Route::get('admin/enfermedads/update/{enfermedad}', 'Admin\EnfermedadController@updateModal')->name('admin.enfermedads.update');
 Route::patch('admin/enfermedads/update/{enfermedad}', 'Admin\EnfermedadController@update');
 Route::delete('admin/enfermedads/delete/{enfermedad}', 'Admin\EnfermedadController@delete')->name('admin.enfermedads.delete');
+Route::get('admin/enfermedads/show/{enfermedad}', 'Admin\EnfermedadController@show')->name('admin.enfermedads.show');
 
 // admin sintomas
 Route::get('admin/sintomas', 'Admin\SintomaController@index')->name('admin.sintomas');
@@ -67,3 +68,9 @@ Route::post('admin/enfermedades/addsintoma/{enfermedad?}', 'Admin\AddController@
 Route::get('admin/enfermedades/addsintoma/{enfermedad?}', 'Admin\AddController@addSintomaModal')->name('admin.enfermedades.addsintoma');
 Route::post('admin/enfermedades/addtratamiento/{enfermedad?}', 'Admin\AddController@addtratamiento')->name('admin.enfermedades.addtratamiento');
 Route::get('admin/enfermedades/addtratamiento/{enfermedad?}', 'Admin\AddController@addtratamientoModal')->name('admin.enfermedades.addtratamiento');
+
+
+Route::get('admin/sintomas/deleteSintoma/', 'Admin\AddController@deleteSintoma')->name('admin.deleteSintoma');
+Route::get('admin/sintomas/deleteTratamiento/', 'Admin\AddController@deleteTratamiento')->name('admin.deleteTratamiento');
+
+// admin.tratamientos.delete
